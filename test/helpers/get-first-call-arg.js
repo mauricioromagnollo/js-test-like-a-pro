@@ -1,0 +1,1 @@
+export const getFirstCallArg = ({ mock }) => mock.calls[0].arguments[0]
