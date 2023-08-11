@@ -1,7 +1,7 @@
 import { describe, it, before, after } from 'node:test'
 import assert from 'node:assert'
 
-import { app } from '../../api.js'
+import { app } from '../../src/api.js'
 
 describe('E2E > api', () => {
   let BASE_URL = ''

@@ -2,7 +2,7 @@ import { describe, it, before, after } from 'node:test'
 import assert from 'node:assert'
 import { EventEmitter } from 'node:events'
 
-import { handler } from '../../api.js'
+import { handler } from '../../src/api.js'
 
 const mockRequest = ({ url, method, headers, body }) => {
   const options = {
