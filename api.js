@@ -3,10 +3,12 @@ import { createServer } from 'node:http'
 import JWT from 'jsonwebtoken'
 
 const DEFAULT_USER = {
-  user: 'erickwendel',
-  password: '123'
+  user: 'mauricioromagnollo',
+  password: 'valid_password'
 }
-const JWT_KEY = 'abc123'
+
+const JWT_KEY = 'abc1234'
+
 async function loginRoute(request, response) {
   const { user, password } = JSON.parse(await once(request, 'data'))
   if (user !== DEFAULT_USER.user || password !== DEFAULT_USER.password) {
@@ -18,6 +20,7 @@ async function loginRoute(request, response) {
 
   response.end(JSON.stringify({ token }))
 }
+
 function isHeadersValid(headers) {
   try {
     const auth = headers.authorization.replace(/bearer\s/ig, '')
@@ -42,4 +45,7 @@ async function handler(request, response) {
 
 const app = createServer(handler)
 
-app.listen(3000, () => console.log('listening at 3000'))
+export {
+  app,
+  handler
+}
